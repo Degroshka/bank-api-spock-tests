@@ -28,6 +28,7 @@ Java 17+, Maven 3.9+, Docker. Groovy 4.0, Spock 2.4, REST Assured 5.5, Spring Bo
 2. Запустить сервис (из корня проекта) или класс `BankApplication` в IntelliJ IDEA:
 
        mvn -pl service spring-boot:run
+(Если порт 5432 занят, скопируйте `.env.example` в `.env` и поменяйте `DB_PORT`)
 
    Swagger UI: http://localhost:8080/swagger-ui.html
 
@@ -35,7 +36,7 @@ Java 17+, Maven 3.9+, Docker. Groovy 4.0, Spock 2.4, REST Assured 5.5, Spring Bo
 
        mvn -pl api-tests test -DskipApiTests=false
 
-   Параметры: `-DbaseUrl=http://localhost:8080`, `-DdbUrl=jdbc:postgresql://localhost:5432/bank`.
+   Параметры: `-DbaseUrl=http://localhost:8080`, `-DdbUrl=jdbc:postgresql://localhost:5433/bank`.
 
 4. Запустить тесты `spock-basics` (БД не нужна):
 

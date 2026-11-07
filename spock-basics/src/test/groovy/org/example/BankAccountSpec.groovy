@@ -180,7 +180,7 @@ class BankAccountSpec extends Specification {
     }
     def "TC-1.3.5: Разморозка меняет флаг"(){
         given:
-        def A=initiateFreezeAccount()
+        def A=initiateFreezeAccount(100)
         when:
         A.unfreeze()
         then:
