@@ -65,6 +65,27 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>properties-maven-plugin</artifactId>
+                    <version>1.2.1</version>
+                    <executions>
+                        <execution>
+                            <phase>initialize</phase>
+                            <goals>
+                                <goal>read-project-properties</goal>
+                            </goals>
+                            <configuration>
+                                <files>
+                                    <!-- Файл .env лежит на один уровень выше (в корне проекта) -->
+                                    <file>${project.basedir}/../.env</file>
+                                </files>
+                                <!-- Если файла .env нет, сборка упадет с ошибкой -->
+                                <quiet>false</quiet>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
                 <!-- Компиляция Groovy-тестов (Spock). Исходники лежат в src/test/groovy -->
                 <plugin>
                     <groupId>org.codehaus.gmavenplus</groupId>
